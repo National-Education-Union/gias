@@ -160,7 +160,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
                 response = post(
                     f'{self.__base_url__}search',
                     headers=self.__headers__,
-                    data=query,
+                    json={'query': query},
                     timeout=timeout,
                     )
                 timeout_error = False
