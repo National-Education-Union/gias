@@ -21,13 +21,33 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
             api_key,
             token_endpoint
             ):
+        """
+        
+
+        Parameters
+        ----------
+        client_id : str
+            Your GIAS app's client ID.
+        primary_secret : str
+            Your GIAS app's primary secret.
+        scope : str
+            The URL of your app's scope.
+        api_key : str
+            Your GIAS app's API key.
+        token_endpoint : str
+            The URL of the token endpoint for your GIAS app.
+
+        Returns
+        -------
+        None.
+
+        """
         self.__client_id__ = client_id
         self.__primary_secret__ = primary_secret
         self.__scope__ = scope
         self.__api_key__ = api_key
         self.__token_endpoint__ = token_endpoint
         self.__get_access_token__()
-        
 
     def __get_access_token__(self):
         call_time = datetime.now()
@@ -81,46 +101,201 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
 
     def establishment(self, urn):
+        """
+        
+
+        Parameters
+        ----------
+        urn : int
+            URN of establishment.
+
+        Returns
+        -------
+        dict
+            All establishment details.
+
+        """
+        
         return self.__get_gias__(f'establishment/{urn}')
 
 
     def establishment_changes(self, urn):
+        """
+        
+
+        Parameters
+        ----------
+        urn : int
+            URN of establishment.
+
+        Returns
+        -------
+        list
+            All establishment changes, each change is a dict.
+
+        """
         return self.__get_gias__(f'establishment/{urn}/changes')
 
 
     def establishment_groups(self, urn):
+        """
+        
+
+        Parameters
+        ----------
+        urn : int
+            URN of establishment.
+
+        Returns
+        -------
+        list
+            All establishment group UIDs, each group is a dict.
+
+        """
         return self.__get_gias__(f'establishment/{urn}/groups')
 
 
     def establishment_governors(self, urn):
+        """
+        
+
+        Parameters
+        ----------
+        urn : int
+            URN of establishment.
+
+        Returns
+        -------
+        list
+            All establishment governors' GIDs, each governor is a dict.
+
+        """
         return self.__get_gias__(f'establishment/{urn}/governors')
 
 
     def establishment_sentypes(self, urn):
+        """
+        
+
+        Parameters
+        ----------
+        urn : int
+            URN of establishment.
+
+        Returns
+        -------
+        list
+            All establishment SEN types, each SEN type is a dict.
+
+        """
         return self.__get_gias__(f'establishment/{urn}/sentypes')
 
 
     def group(self, uid):
+        """
+        
+
+        Parameters
+        ----------
+        uid : int
+            UID of group.
+
+        Returns
+        -------
+        dict
+            All group details.
+
+        """
         return self.__get_gias__(f'group/{uid}')
 
 
     def group_establishments(self, uid):
+        """
+        
+
+        Parameters
+        ----------
+        uid : int
+            UID of group.
+
+        Returns
+        -------
+        list
+            All group establishments' URNs, each URN is a dict.
+
+        """
         return self.__get_gias__(f'group/{uid}/establishments')
 
 
     def group_changes(self, uid):
+        """
+        
+
+        Parameters
+        ----------
+        uid : int
+            UID of group.
+
+        Returns
+        -------
+        list
+            All group changes, each change is a dict.
+
+        """
         return self.__get_gias__(f'group/{uid}/changes')
 
 
     def governor(self, gid):
+        """
+        
+
+        Parameters
+        ----------
+        gid : int
+            Governor GID.
+
+        Returns
+        -------
+        dict
+            All governor details.
+
+        """
         return self.__get_gias__(f'governor/{gid}')
 
 
     def governor_establishments(self, gid):
+        """
+        
+
+        Parameters
+        ----------
+        gid : int
+            Governor GID.
+
+        Returns
+        -------
+        list
+            All governor establishments' URNs, each URN is return as a dict.
+
+        """
         return self.__get_gias__(f'governor/{gid}/establishments')
 
 
     def governor_changes(self, gid):
+        """
+        
+
+        Parameters
+        ----------
+        gid : int
+            Governor GID.
+
+        Returns
+        -------
+        list
+            All governor changes, each change is return as a dict.
+
+        """
         return self.__get_gias__(f'governor/{gid}/changes')
 
 
@@ -141,18 +316,67 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
 
     def establishments(self):
+        """
+
+
+        Returns
+        -------
+        list
+            All establishments from GIAS, each establishment is a dict.
+
+        """
+
         return self.__get_gias_all__('establishment')
 
 
     def groups(self):
+        """
+
+
+        Returns
+        -------
+        list
+            All groups from GIAS, each group is a dict.
+
+        """
         return self.__get_gias_all__('group')
 
 
     def governors(self):
+        """
+
+
+        Returns
+        -------
+        list
+            All governors from GIAS, each governor is a dict.
+
+        """
         return self.__get_gias_all__('governor')
 
 
     def search(self, query, timeout=10):
+        """
+
+
+        Parameters
+        ----------
+        query : str
+            A GraphQL query written as a string.
+        timeout : int, optional
+            Timeout for request. The default is 10.
+
+        Raises
+        ------
+        Exception
+            If request fails.
+
+        Returns
+        -------
+        dict
+            Result of GraphQL query.
+
+        """
         self.__check_access_token__()
         timeout_error = True
         while timeout_error:
