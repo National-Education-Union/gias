@@ -275,7 +275,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
         Returns
         -------
         list
-            All governor establishments' URNs, each URN is return as a dict.
+            All governor establishments' URNs, each URN is a dict.
 
         """
         return self.__get_gias__(f'governor/{gid}/establishments')
@@ -293,7 +293,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
         Returns
         -------
         list
-            All governor changes, each change is return as a dict.
+            All governor changes, each change is a dict.
 
         """
         return self.__get_gias__(f'governor/{gid}/changes')
