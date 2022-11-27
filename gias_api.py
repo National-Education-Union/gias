@@ -22,12 +22,12 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
             token_endpoint
             ):
         """
-        
+        Wrapper for DfE's Get Information About Schools API.
 
         Parameters
         ----------
         client_id : str
-            Your GIAS app's client ID.
+            Your GIAS app's Client ID.
         primary_secret : str
             Your GIAS app's primary secret.
         scope : str
@@ -50,6 +50,20 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
         self.__get_access_token__()
 
     def __get_access_token__(self):
+        """
+        Requsts access token from GIAS API.
+
+        Raises
+        ------
+        Exception
+            If access token request fails.
+
+        Returns
+        -------
+        None.
+
+        """
+
         call_time = datetime.now()
         try:
             response = post(
@@ -76,11 +90,38 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
 
     def __check_access_token__(self):
+        """
+        Checks if access token is still valid.
+
+        Returns
+        -------
+        None.
+
+        """
         if (datetime.now() - self.__token_created__).seconds > 3500:
             self.__get_access_token__()
 
 
     def __get_gias__(self, request):
+        """
+        Makes GET request to GIAS API.
+
+        Parameters
+        ----------
+        request : str
+            Request string.
+
+        Raises
+        ------
+        Exception
+            If request fails.
+
+        Returns
+        -------
+        dict
+            Response to request.
+
+        """
         self.__check_access_token__()
         timeout_error = True
         while timeout_error:
@@ -102,7 +143,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def establishment(self, urn):
         """
-        
+        Gets GIAS establishment details.
 
         Parameters
         ----------
@@ -115,13 +156,13 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
             All establishment details.
 
         """
-        
+
         return self.__get_gias__(f'establishment/{urn}')
 
 
     def establishment_changes(self, urn):
         """
-        
+        Gets GIAS establishment changes.
 
         Parameters
         ----------
@@ -139,7 +180,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def establishment_groups(self, urn):
         """
-        
+        Gets GIAS establishment groups.
 
         Parameters
         ----------
@@ -157,7 +198,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def establishment_governors(self, urn):
         """
-        
+        Gets GIAS establishment governors.
 
         Parameters
         ----------
@@ -175,7 +216,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def establishment_sentypes(self, urn):
         """
-        
+        Gets GIAS establishment SEN types.
 
         Parameters
         ----------
@@ -193,7 +234,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def group(self, uid):
         """
-        
+        Gets GIAS group details.
 
         Parameters
         ----------
@@ -211,7 +252,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def group_establishments(self, uid):
         """
-        
+        Gets GIAS group establishments.
 
         Parameters
         ----------
@@ -229,7 +270,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def group_changes(self, uid):
         """
-        
+        Gets GIAS group changes.
 
         Parameters
         ----------
@@ -247,7 +288,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def governor(self, gid):
         """
-        
+        Gets GIAS governor details.
 
         Parameters
         ----------
@@ -265,7 +306,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def governor_establishments(self, gid):
         """
-        
+        Gets GIAS governor establishments
 
         Parameters
         ----------
@@ -275,7 +316,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
         Returns
         -------
         list
-            All governor establishments' URNs, each URN is a dict.
+            All governor establishments' URNs, each URN is return as a dict.
 
         """
         return self.__get_gias__(f'governor/{gid}/establishments')
@@ -283,7 +324,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def governor_changes(self, gid):
         """
-        
+        Gets GIAS governor changes.
 
         Parameters
         ----------
@@ -293,7 +334,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
         Returns
         -------
         list
-            All governor changes, each change is a dict.
+            All governor changes, each change is return as a dict.
 
         """
         return self.__get_gias__(f'governor/{gid}/changes')
@@ -317,7 +358,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def establishments(self):
         """
-
+        Gets all GIAS establishments' details.
 
         Returns
         -------
@@ -331,7 +372,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def groups(self):
         """
-
+        Gets all GIAS groups' details.
 
         Returns
         -------
@@ -344,7 +385,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def governors(self):
         """
-
+        Gets all GIAS governors' details.
 
         Returns
         -------
@@ -357,7 +398,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def search(self, query, timeout=10):
         """
-
+        Makes a GraphQL search of the GIAS API.
 
         Parameters
         ----------
