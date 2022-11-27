@@ -341,6 +341,20 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
 
     def __get_gias_all__(self, data_group):
+        """
+        Gets details of all establishments, groups or governors.
+
+        Parameters
+        ----------
+        data_group : str
+            'establishment', 'group' or 'governor' 
+
+        Returns
+        -------
+        data : list
+            All details of establishments, groups or governors.
+
+        """
         limit = self.__get_gias_multiple_results_limit__
         offset = 0
         data = []
@@ -398,7 +412,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def search(self, query, timeout=10):
         """
-        Makes a GraphQL search of the GIAS API.
+        Posts a GraphQL search to the GIAS API.
 
         Parameters
         ----------
