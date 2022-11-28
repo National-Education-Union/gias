@@ -10,7 +10,7 @@ class GetInformationAboutSchools:
 AppleWebKit/537.36 (KHTML, like Gecko) \
 Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
     __timeout_get__ = 10
-    ___limit_multiple_results__ = 1000
+    __limit_multiple_results__ = 1000
 
 
     def __init__(
@@ -355,7 +355,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
             All establishments', groups' or governors' details - each set of details is a dict.
 
         """
-        limit = self.___limit_multiple_results__
+        limit = self.__limit_multiple_results__
         offset = 0
         data = []
         next_data = None
