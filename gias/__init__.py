@@ -1,1 +1,0 @@
-from gias import GetInformationAboutSchools
