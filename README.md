@@ -278,7 +278,7 @@ graphql_query = """
     {  
 	urn
 	role
-    title
+        title
     }
 }
 """
