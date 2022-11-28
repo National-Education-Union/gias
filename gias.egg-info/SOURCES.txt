@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+gias/__init__.py
+gias/gias.py
+gias.egg-info/PKG-INFO
+gias.egg-info/SOURCES.txt
+gias.egg-info/dependency_links.txt
+gias.egg-info/top_level.txt
