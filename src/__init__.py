@@ -1,1 +1,0 @@
-from gias_api import GetInformationAboutSchools

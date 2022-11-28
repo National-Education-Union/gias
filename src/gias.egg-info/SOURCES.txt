@@ -1,7 +1,6 @@
 LICENSE
 README.md
 pyproject.toml
-src/__init__.py
 src/gias_api.py
 src/gias.egg-info/PKG-INFO
 src/gias.egg-info/SOURCES.txt

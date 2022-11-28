@@ -23,16 +23,17 @@ pip install git+https://github.com/National-Education-Union/gias
 
 ## Examples
 
-### Set up
+### Initialize
 ```python
 
 from gias_api import GetInformationAboutSchools
+
 gias = GetInformationAboutSchools(
   YOUR_GIAS_CLIENT_ID,
   YOUR_GIAS_PRIMARY_SECRET,
   YOUR_GIAS_SCOPE,
   YOUR_GIAS_API_KEY,
-  YOUR_GIAS_TOEKN_ENDPOINT
+  YOUR_GIAS_TOKEN_ENDPOINT
   )
 ```
 
@@ -42,7 +43,7 @@ gias = GetInformationAboutSchools(
 gias.establishment(100005)
 ```
 
-#### Output
+#### Returns
 ```
 {'Urn': 100005,
  'La': {'Name': 'Camden', 'Code': '202'},
@@ -64,7 +65,7 @@ gias.establishment(100005)
 gias.establishment_changes(100005)
 ```
 
-#### Output
+#### Returns
 ```
 [{'FieldShortName': 'EstablishmentName',
   'OldValue': 'Thomas Coram Early Childhood C',
@@ -86,7 +87,7 @@ gias.establishment_changes(100005)
 gias.establishment_groups(137442)
 ```
 
-#### Output
+#### Returns
 ```
 [{'GroupUid': 2711}]
 ```
@@ -96,7 +97,7 @@ gias.establishment_groups(137442)
 gias.establishment_governors(100005)
 ```
 
-#### Output
+#### Returns
 ```
 [{'Gid': 1306077},
  {'Gid': 1306084},
@@ -116,7 +117,7 @@ gias.establishment_governors(100005)
 gias.group(2711)
 ```
 
-#### Output
+#### Returns
 ```
 {'GroupUid': 2711,
  'GroupId': 'TR00518',
@@ -165,7 +166,7 @@ gias.group(2711)
 gias.group_changes(2711)
 ```
 
-#### Output
+#### Returns
 ```
 [{'FieldShortName': 'GroupPostcode',
   'NewValue': 'E5 0RB',
@@ -200,7 +201,7 @@ gias.group_changes(2711)
 gias.governor(1306084)
 ```
 
-#### Output
+#### Returns
 ```
 {'Gid': 1306084,
  'Role': 'Governor',
@@ -236,7 +237,7 @@ gias.governor(1306084)
 gias.governor_establishments(1306084)
 ```
 
-#### Output
+#### Returns
 ```
 [{'Urn': 100005}]
 ```
@@ -246,7 +247,7 @@ gias.governor_establishments(1306084)
 gias.governor_changes(1306084)
 ```
 
-#### Output
+#### Returns
 ```
 [{'FieldShortName': 'forename1',
   'CreatedDate': '2018-09-05T09:25:52.157',
@@ -268,22 +269,22 @@ gias.governor_changes(1306084)
   'EffectiveDate': '2022-07-08T10:59:17.623'}]
 ```
 
-## Get all establishments
+### Get all establishments
 ```python
 gias.establishments()
 ```
 
-## Get all groups
+### Get all groups
 ```python
 gias.groups()
 ```
 
-## Get all governors
+### Get all governors
 ```python
 gias.governors()
 ```
 
-## Search Get Information About Schools
+### Search Get Information About Schools
 Create a GraphQL query
 ```python
 graphql_query = """
@@ -292,14 +293,15 @@ graphql_query = """
     {  
 	urn
 	role
-    title
+        title
     }
 }
 """
+
 gias.search(graphql_query)
 ```
 
-### Output
+#### Returns
 ```
 {'data': {'governorByGid': {'urn': 135264,
    'role': 'Accounting Officer',
