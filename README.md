@@ -29,7 +29,7 @@ gias = GetInformationAboutSchools(
 gias.establishment(100005)
 ```
 
-#### Output
+#### Returns
 ```
 {'Urn': 100005,
  'La': {'Name': 'Camden', 'Code': '202'},
@@ -51,7 +51,7 @@ gias.establishment(100005)
 gias.establishment_changes(100005)
 ```
 
-#### Output
+#### Returns
 ```
 [{'FieldShortName': 'EstablishmentName',
   'OldValue': 'Thomas Coram Early Childhood C',
@@ -73,7 +73,7 @@ gias.establishment_changes(100005)
 gias.establishment_groups(137442)
 ```
 
-#### Output
+#### Returns
 ```
 [{'GroupUid': 2711}]
 ```
@@ -83,7 +83,7 @@ gias.establishment_groups(137442)
 gias.establishment_governors(100005)
 ```
 
-#### Output
+#### Returns
 ```
 [{'Gid': 1306077},
  {'Gid': 1306084},
@@ -103,7 +103,7 @@ gias.establishment_governors(100005)
 gias.group(2711)
 ```
 
-#### Output
+#### Returns
 ```
 {'GroupUid': 2711,
  'GroupId': 'TR00518',
@@ -152,7 +152,7 @@ gias.group(2711)
 gias.group_changes(2711)
 ```
 
-#### Output
+#### Returns
 ```
 [{'FieldShortName': 'GroupPostcode',
   'NewValue': 'E5 0RB',
@@ -187,7 +187,7 @@ gias.group_changes(2711)
 gias.governor(1306084)
 ```
 
-#### Output
+#### Returns
 ```
 {'Gid': 1306084,
  'Role': 'Governor',
@@ -223,7 +223,7 @@ gias.governor(1306084)
 gias.governor_establishments(1306084)
 ```
 
-#### Output
+#### Returns
 ```
 [{'Urn': 100005}]
 ```
@@ -233,7 +233,7 @@ gias.governor_establishments(1306084)
 gias.governor_changes(1306084)
 ```
 
-#### Output
+#### Returns
 ```
 [{'FieldShortName': 'forename1',
   'CreatedDate': '2018-09-05T09:25:52.157',
@@ -270,7 +270,7 @@ gias.groups()
 gias.governors()
 ```
 
-## Search Get Information About Schools
+### Search Get Information About Schools
 Create a GraphQL query
 ```python
 graphql_query = """
@@ -283,10 +283,11 @@ graphql_query = """
     }
 }
 """
+
 gias.search(graphql_query)
 ```
 
-### Output
+#### Returns
 ```
 {'data': {'governorByGid': {'urn': 135264,
    'role': 'Accounting Officer',
