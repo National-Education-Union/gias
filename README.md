@@ -282,6 +282,7 @@ graphql_query = """
     }
 }
 """
+gias.search(graphql_query)
 ```
 
 ### Output
