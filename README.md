@@ -9,7 +9,7 @@ pip install git+https://github.com/National-Education-Union/gias
 
 ## Examples
 
-### Set up
+### Initialize
 ```python
 
 from gias_api import GetInformationAboutSchools
