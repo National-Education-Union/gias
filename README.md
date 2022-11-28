@@ -13,12 +13,13 @@ pip install git+https://github.com/National-Education-Union/gias
 ```python
 
 from gias_api import GetInformationAboutSchools
+
 gias = GetInformationAboutSchools(
   YOUR_GIAS_CLIENT_ID,
   YOUR_GIAS_PRIMARY_SECRET,
   YOUR_GIAS_SCOPE,
   YOUR_GIAS_API_KEY,
-  YOUR_GIAS_TOEKN_ENDPOINT
+  YOUR_GIAS_TOKEN_ENDPOINT
   )
 ```
 
