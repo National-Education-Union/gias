@@ -22,7 +22,7 @@ gias = GetInformationAboutSchools(
   )
 ```
 
-### Get establishment with URN
+### Get establishment
 
 ```python
 gias.establishment(100005)
@@ -45,7 +45,7 @@ gias.establishment(100005)
  }
 ```
 
-### Get establishment changes
+### Get establishment's changes
 ```python
 gias.establishment_changes(100005)
 ```
@@ -67,7 +67,7 @@ gias.establishment_changes(100005)
   ]
   ```
  
-### Get establishment groups
+### Get establishment's groups
  ```python
 gias.establishment_groups(137442)
 ```
@@ -77,7 +77,7 @@ gias.establishment_groups(137442)
 [{'GroupUid': 2711}]
 ```
 
-### Get establishment governors
+### Get establishment's governors
  ```python
 gias.establishment_governors(100005)
 ```
@@ -146,7 +146,7 @@ gias.group(2711)
    'CreatedDate': '2020-03-19T00:00:00'}]}
 ```
 
-### Get group changes
+### Get group's changes
 ```python
 gias.group_changes(2711)
 ```
@@ -291,5 +291,3 @@ gias.search(graphql_query)
    'role': 'Accounting Officer',
    'title': 'Ms'}}}
 ```
-
-
