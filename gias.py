@@ -91,7 +91,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def __check_access_token__(self):
         """
-        Checks if access token is still valid.
+        Checks if access token is still valid and fetches a new one if not.
 
         Returns
         -------
@@ -306,7 +306,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
     def governor_establishments(self, gid):
         """
-        Gets GIAS governor establishments
+        Gets GIAS governor establishments.
 
         Parameters
         ----------
