@@ -2,15 +2,15 @@ from requests import get, post, exceptions
 from datetime import datetime
 
 
-class GiasApi:
+class GetInformationAboutSchools:
     __base_url__ = (
         'https://api-customerengagement.platform.education.gov.uk/gias/'
         )
     __user_agent__ = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
 AppleWebKit/537.36 (KHTML, like Gecko) \
 Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
-    __get_timeout__ = 10
-    __get_gias_multiple_results_limit__ = 1000
+    __timeout_get__ = 10
+    ___limit_multiple_results__ = 1000
 
 
     def __init__(
@@ -102,7 +102,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
             self.__get_access_token__()
 
 
-    def __get_gias__(self, request):
+    def __get__(self, request):
         """
         Makes GET request to GIAS API.
 
@@ -129,7 +129,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
                 response = get(
                     f'{self.__base_url__}{request}',
                     headers=self.__headers__,
-                    timeout=self.__get_timeout__
+                    timeout=self.__timeout_get__
                     )
                 timeout_error = False
             except exceptions.Timeout:
@@ -147,17 +147,17 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
         Parameters
         ----------
-        urn : int
+        urn : int, str
             URN of establishment.
 
         Returns
         -------
         dict
-            All establishment details.
+            Establishment's details.
 
         """
 
-        return self.__get_gias__(f'establishment/{urn}')
+        return self.__get__(f'establishment/{urn}')
 
 
     def establishment_changes(self, urn):
@@ -166,16 +166,16 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
         Parameters
         ----------
-        urn : int
+        urn : int, str
             URN of establishment.
 
         Returns
         -------
         list
-            All establishment changes, each change is a dict.
+            Establishment's changes - each change is a dict.
 
         """
-        return self.__get_gias__(f'establishment/{urn}/changes')
+        return self.__get__(f'establishment/{urn}/changes')
 
 
     def establishment_groups(self, urn):
@@ -184,16 +184,16 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
         Parameters
         ----------
-        urn : int
+        urn : int, str
             URN of establishment.
 
         Returns
         -------
         list
-            All establishment group UIDs, each group is a dict.
+            Establishment's groups' UIDs - each group is a dict.
 
         """
-        return self.__get_gias__(f'establishment/{urn}/groups')
+        return self.__get__(f'establishment/{urn}/groups')
 
 
     def establishment_governors(self, urn):
@@ -202,16 +202,16 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
         Parameters
         ----------
-        urn : int
+        urn : int, str
             URN of establishment.
 
         Returns
         -------
         list
-            All establishment governors' GIDs, each governor is a dict.
+            Establishment's governors' GIDs - each governor is a dict.
 
         """
-        return self.__get_gias__(f'establishment/{urn}/governors')
+        return self.__get__(f'establishment/{urn}/governors')
 
 
     def establishment_sentypes(self, urn):
@@ -220,16 +220,16 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
         Parameters
         ----------
-        urn : int
+        urn : int, str
             URN of establishment.
 
         Returns
         -------
         list
-            All establishment SEN types, each SEN type is a dict.
+            Establishment's SEN types - each SEN type is a dict.
 
         """
-        return self.__get_gias__(f'establishment/{urn}/sentypes')
+        return self.__get__(f'establishment/{urn}/sentypes')
 
 
     def group(self, uid):
@@ -238,16 +238,16 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
         Parameters
         ----------
-        uid : int
+        urn : int, str
             UID of group.
 
         Returns
         -------
         dict
-            All group details.
+            Group details.
 
         """
-        return self.__get_gias__(f'group/{uid}')
+        return self.__get__(f'group/{uid}')
 
 
     def group_establishments(self, uid):
@@ -256,16 +256,16 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
         Parameters
         ----------
-        uid : int
+        urn : int, str
             UID of group.
 
         Returns
         -------
         list
-            All group establishments' URNs, each URN is a dict.
+            Group's establishments' URNs - each URN is a dict.
 
         """
-        return self.__get_gias__(f'group/{uid}/establishments')
+        return self.__get__(f'group/{uid}/establishments')
 
 
     def group_changes(self, uid):
@@ -274,16 +274,16 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
         Parameters
         ----------
-        uid : int
+        urn : int, str
             UID of group.
 
         Returns
         -------
         list
-            All group changes, each change is a dict.
+            Group's changes - each change is a dict.
 
         """
-        return self.__get_gias__(f'group/{uid}/changes')
+        return self.__get__(f'group/{uid}/changes')
 
 
     def governor(self, gid):
@@ -292,16 +292,16 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
         Parameters
         ----------
-        gid : int
+        urn : int, str
             Governor GID.
 
         Returns
         -------
         dict
-            All governor details.
+            Governor's details.
 
         """
-        return self.__get_gias__(f'governor/{gid}')
+        return self.__get__(f'governor/{gid}')
 
 
     def governor_establishments(self, gid):
@@ -310,16 +310,16 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
         Parameters
         ----------
-        gid : int
+        urn : int, str
             Governor GID.
 
         Returns
         -------
         list
-            All governor establishments' URNs, each URN is return as a dict.
+            Governor's establishments' URNs - each URN is a dict.
 
         """
-        return self.__get_gias__(f'governor/{gid}/establishments')
+        return self.__get__(f'governor/{gid}/establishments')
 
 
     def governor_changes(self, gid):
@@ -328,19 +328,19 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
 
         Parameters
         ----------
-        gid : int
+        urn : int, str
             Governor GID.
 
         Returns
         -------
         list
-            All governor changes, each change is return as a dict.
+            Governor's changes - each change is a dict.
 
         """
-        return self.__get_gias__(f'governor/{gid}/changes')
+        return self.__get__(f'governor/{gid}/changes')
 
 
-    def __get_gias_all__(self, data_group):
+    def __get_all__(self, data_group):
         """
         Gets details of all establishments, groups or governors.
 
@@ -352,10 +352,10 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
         Returns
         -------
         data : list
-            All details of establishments, groups or governors.
+            All establishments', groups' or governors' details - each set of details is a dict.
 
         """
-        limit = self.__get_gias_multiple_results_limit__
+        limit = self.___limit_multiple_results__
         offset = 0
         data = []
         next_data = None
@@ -377,11 +377,11 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
         Returns
         -------
         list
-            All establishments from GIAS, each establishment is a dict.
+            All establishments - each establishment is a dict.
 
         """
 
-        return self.__get_gias_all__('establishment')
+        return self.__get_all__('establishment')
 
 
     def groups(self):
@@ -391,10 +391,10 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
         Returns
         -------
         list
-            All groups from GIAS, each group is a dict.
+            All groups - each group is a dict.
 
         """
-        return self.__get_gias_all__('group')
+        return self.__get_all__('group')
 
 
     def governors(self):
@@ -404,10 +404,10 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
         Returns
         -------
         list
-            All governors from GIAS, each governor is a dict.
+            All governors - each governor is a dict.
 
         """
-        return self.__get_gias_all__('governor')
+        return self.__get_all__('governor')
 
 
     def search(self, query, timeout=10):
