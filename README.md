@@ -255,17 +255,17 @@ gias.governor_changes(1306084)
   'EffectiveDate': '2022-07-08T10:59:17.623'}]
 ```
 
-## Get all establishments
+### Get all establishments
 ```python
 gias.establishments()
 ```
 
-## Get all groups
+### Get all groups
 ```python
 gias.groups()
 ```
 
-## Get all governors
+### Get all governors
 ```python
 gias.governors()
 ```
