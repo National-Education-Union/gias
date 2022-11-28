@@ -2,7 +2,15 @@
 
 A Python 3 wrapper for the Department for Education's Get Information About Schools API.
 
-Install
+## Install
 ```
 pip install git+https://github.com/National-Education-Union/gias
 ```
+
+## Examples
+
+### Set up
+```python
+
+from gias import GetInformationAboutSchools
+gias = GetInformationAboutSchools(
