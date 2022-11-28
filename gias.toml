@@ -1,0 +1,18 @@
+[project]
+name = "gias"
+version = "0.0.1"
+authors = [
+  { name="Andrtew Baisley", email="andrew.baisley@neu.org.uk" },
+]
+description = "A Python 3 wrapper for the Department for Education's Get Information About Schools API."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/National-Education-Union/gias"
+"Bug Tracker" = "https://github.com/National-Education-Union/gias-api/issues"
