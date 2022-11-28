@@ -410,7 +410,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
         return self.__get_all__('governor')
 
 
-    def search(self, query, timeout=10):
+    def search(self, query, timeout=30):
         """
         Posts a GraphQL search to the GIAS API.
 
