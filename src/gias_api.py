@@ -360,7 +360,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
         data = []
         next_data = None
         while next_data != []:
-            next_data = self.__get_gias__(
+            next_data = self.__get__(
                 f'{data_group}/all?limit={limit}&offset={offset}'
                 )
             if type(next_data) == list:
