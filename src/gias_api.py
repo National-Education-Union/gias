@@ -10,7 +10,7 @@ class GetInformationAboutSchools:
 AppleWebKit/537.36 (KHTML, like Gecko) \
 Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
     __timeout_get__ = 10
-    __limit_multiple_results__ = 1000
+    __limit_multiple_results__ = 5
 
 
     def __init__(
@@ -133,7 +133,11 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
                     )
                 timeout_error = False
             except exceptions.Timeout:
-                print('Connection timed out. Trying again...')
+                print(
+                    f"\r{datetime.now().strftime('%d/%m/%Y %H:%M:%S')} - \
+Connection timed out. Trying again...",
+                    ends=""
+                    )
                 timeout_error = True
         if response.ok:
             return response.json()
@@ -366,7 +370,11 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
             if type(next_data) == list:
                 data.extend(next_data)
                 offset += limit
-            print(f'Records found: {len(data)}')
+            print(
+                f"\r{datetime.now().strftime('%d/%m/%Y %H:%M:%S')} - \
+Records found: {len(data)}",
+                ends=""
+                )
         return data
 
 
@@ -444,7 +452,11 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
                     )
                 timeout_error = False
             except exceptions.Timeout:
-                print('Connection timed out. Trying again...')
+                print(
+                    f"\r{datetime.now().strftime('%d/%m/%Y %H:%M:%S')} - \
+Connection timed out. Trying again...",
+                    ends=""
+                    )
                 timeout_error = True
         if response.ok:
             return response.json()
