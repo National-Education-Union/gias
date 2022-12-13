@@ -1,10 +1,10 @@
 Metadata-Version: 2.1
 Name: gias
-Version: 0.0.1
+Version: 0.0.2
 Summary: A Python 3 wrapper for the Department for Education's Get Information About Schools API.
 Author-email: Andrtew Baisley <andrew.baisley@neu.org.uk>
 Project-URL: Homepage, https://github.com/National-Education-Union/gias
-Project-URL: Bug Tracker, https://github.com/National-Education-Union/gias-api/issues
+Project-URL: Bug Tracker, https://github.com/National-Education-Union/gias/issues
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent

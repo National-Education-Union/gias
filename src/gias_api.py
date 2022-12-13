@@ -363,6 +363,10 @@ Connection timed out. Trying again...",
         offset = 0
         data = []
         next_data = None
+        print(
+            f"{datetime.now().strftime('%d/%m/%Y %H:%M:%S')} - \
+Startd getting all {data_group}s"
+            )
         while next_data != []:
             next_data = self.__get__(
                 f'{data_group}?limit={limit}&offset={offset}'

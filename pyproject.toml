@@ -1,6 +1,6 @@
 [project]
 name = "gias"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name="Andrtew Baisley", email="andrew.baisley@neu.org.uk" },
 ]
@@ -15,4 +15,4 @@ classifiers = [
 
 [project.urls]
 "Homepage" = "https://github.com/National-Education-Union/gias"
-"Bug Tracker" = "https://github.com/National-Education-Union/gias-api/issues"
+"Bug Tracker" = "https://github.com/National-Education-Union/gias/issues"
