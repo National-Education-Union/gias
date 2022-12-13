@@ -136,7 +136,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
                 print(
                     f"\r{datetime.now().strftime('%d/%m/%Y %H:%M:%S')} - \
 Connection timed out. Trying again...",
-                    ends=""
+                    end=""
                     )
                 timeout_error = True
         if response.ok:
@@ -373,7 +373,7 @@ Connection timed out. Trying again...",
             print(
                 f"\r{datetime.now().strftime('%d/%m/%Y %H:%M:%S')} - \
 Records found: {len(data)}",
-                ends=""
+                end=""
                 )
         return data
 
@@ -455,7 +455,7 @@ Records found: {len(data)}",
                 print(
                     f"\r{datetime.now().strftime('%d/%m/%Y %H:%M:%S')} - \
 Connection timed out. Trying again...",
-                    ends=""
+                    end=""
                     )
                 timeout_error = True
         if response.ok:
