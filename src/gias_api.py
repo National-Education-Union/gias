@@ -361,7 +361,7 @@ Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
         next_data = None
         while next_data != []:
             next_data = self.__get__(
-                f'{data_group}?offset={offset}&limit={limit}'
+                f'{data_group}?limit={limit}&offset={offset}'
                 )
             if type(next_data) == list:
                 data.extend(next_data)
