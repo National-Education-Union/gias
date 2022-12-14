@@ -368,17 +368,20 @@ Connection timed out. Trying again...",
 Started getting all {data_group}s"
             )
         while next_data != []:
-            next_data = self.__get__(
-                f'{data_group}?limit={limit}&offset={offset}'
-                )
-            if type(next_data) == list:
-                data.extend(next_data)
-                offset += limit
-            print(
-                f"\r{datetime.now().strftime('%d/%m/%Y %H:%M:%S')} - \
-Records found: {len(data)}",
-                end=""
-                )
+            try:
+                next_data = self.__get__(
+                    f'{data_group}?limit={limit}&offset={offset}'
+                    )
+                if type(next_data) == list:
+                    data.extend(next_data)
+                    offset += limit
+                print(
+                    f"\r{datetime.now().strftime('%d/%m/%Y %H:%M:%S')} - \
+Records found: {len(data)}                   ",
+                    end=""
+                    )
+            except Exception as e:
+                print(f'{str(e)}\nOffset: {offset}')
         return data
 
 
