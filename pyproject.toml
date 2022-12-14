@@ -1,6 +1,6 @@
 [project]
 name = "gias"
-version = "0.0.2"
+version = "0.0.3"
 authors = [
   { name="Andrtew Baisley", email="andrew.baisley@neu.org.uk" },
 ]

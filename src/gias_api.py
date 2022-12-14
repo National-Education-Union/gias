@@ -381,8 +381,10 @@ Records found: {len(data)}                   ",
                     end=""
                     )
             except Exception as e:
-                print(f"\n{datetime.now().strftime('%d/%m/%Y %H:%M:%S')} - \
-{str(e)}\nOffset: {offset}")
+                print(
+                    f"\n{datetime.now().strftime('%d/%m/%Y %H:%M:%S')} - \
+{str(e)}\nOffset: {offset}"
+                    )
         return data
 
 
