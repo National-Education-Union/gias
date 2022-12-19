@@ -10,7 +10,7 @@ class GetInformationAboutSchools:
 AppleWebKit/537.36 (KHTML, like Gecko) \
 Chrome/42.0.2311.135 Safari/537.36 Edge/12.246'
     __timeout_get__ = 10
-    __limit_multiple_results__ = 5
+    __limit_multiple_results__ = 1000
 
 
     def __init__(
